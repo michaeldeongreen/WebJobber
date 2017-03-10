@@ -12,6 +12,10 @@ https://www.schaeflein.net/azure-webjobs-free-tier/
 1) have to have at least Basic or Standard Tier for Plan
 2) Always On in Application Settings for the App Service
 
+I had to manaully start the WebJob under WebJobs in Azure to see errors
+*Complained about Storage Account connection strings
+*Set those in the App Settings in Azure even though they are in the app.settings
+
 FTP:
 webjobber
 JZJ57YYt3qu2QB7s

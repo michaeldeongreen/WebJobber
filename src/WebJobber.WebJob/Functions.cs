@@ -18,9 +18,11 @@ namespace WebJobber.WebJob
             log.WriteLine(message);
         }*/
 
-        public static void TimerJob([TimerTrigger("00:00:30")] TimerInfo timer)
+        public static void TimerJob([TimerTrigger("00:00:30")] TimerInfo timer, TextWriter log)
         {
             new FileService().Write();
+            string path = string.Format(@"{0}\webjobber.txt", Environment.CurrentDirectory);
+            log.WriteLine(string.Format("Path {0}",path));
             //Console.Write("I ran");
         }
     }
