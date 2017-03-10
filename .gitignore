@@ -1,7 +1,14 @@
+*.user
+
 /src/packages
 /src/.vs
 
 /src/WebJobber.WebJob/bin
 /src/WebJobber.WebJob/obj
 /src/WebJobber.WebJob/.vs
+
+
+/src/WebJobber.Services/bin
+/src/WebJobber.Services/obj
+/src/WebJobber.Services/.vs
 
