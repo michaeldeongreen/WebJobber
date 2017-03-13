@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
-using WebJobber.Services;
+
 
 namespace WebJobber.WebJob
 {

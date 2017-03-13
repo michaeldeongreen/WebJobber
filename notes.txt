@@ -1,3 +1,11 @@
+FTP:
+webjobber
+JZJ57YYt3qu2QB7s
+
+SQL:
+webjobber
+JZJ57YYt3qu2QB7s
+
 1) Had to use a Classic Storage Account
 2) Install this package
 https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions (ignore powershell error for newtonsoft)
@@ -6,6 +14,8 @@ https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions (ignore powers
 
 Scott H. talking about WebJobs
 http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
+SlowCheetah
+https://marketplace.visualstudio.com/items?itemName=WillBuikMSFT.SlowCheetah-XMLTransformsPreviewfor2015
 
 Queue and Plan Information:
 https://www.schaeflein.net/azure-webjobs-free-tier/
@@ -16,6 +26,26 @@ I had to manaully start the WebJob under WebJobs in Azure to see errors
 *Complained about Storage Account connection strings
 *Set those in the App Settings in Azure even though they are in the app.settings
 
-FTP:
-webjobber
-JZJ57YYt3qu2QB7s
+Hard to debug
+Hard to figure why it won't start
+Have to use a Classic Storage Account
+Can't use the same Storage Account unless you specify an Id because its a singleton and will lock
+
+1)The WebJobber stopped working locally, when I deleted the Storage Account and made a new one it started working again
+2)I suspect that when I deleted the WebJob in Test, it had put a lock on the Storage Account and it was never released
+
+Pre:
+1) Create 3 Classic Storage Accounts, Dev, Test and Prod
+2) Install Microsoft.Azure.WebJobs.Extensions
+3) Install SlowCheetah, make sure to uninstall any older SlowCheetah Packages and Extensions
+
+Dev:
+4) Create WebJob Project and set it up the way you like
+5) Setup Test and Prod Configuration and create the app.configs
+6) Your function must be in the auto-created Functions Class
+7) Set your Storage Account Connectionstrings in app.config
+8) See POC code on how to call the Function
+
+Deployment
+9) When you deploy for the first time, put the connection strings in the application settings of the web app, I noticed it complained if it wasn't in there
+10) Make sure you select Always On

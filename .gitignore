@@ -12,3 +12,7 @@
 /src/WebJobber.Services/obj
 /src/WebJobber.Services/.vs
 
+/src/WebJobber.Domain/bin
+/src/WebJobber.Domain/obj
+/src/WebJobber.Domain/.vs
+

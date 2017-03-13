@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using WebJobber.Services;
+using WebJobber.Domain;
 
 namespace WebJobber.WebJob
 {
@@ -20,10 +21,13 @@ namespace WebJobber.WebJob
 
         public static void TimerJob([TimerTrigger("00:00:30")] TimerInfo timer, TextWriter log)
         {
+            /*
             new FileService().Write();
             string path = string.Format(@"{0}\webjobber.txt", Environment.CurrentDirectory);
-            log.WriteLine(string.Format("Path {0}",path));
-            //Console.Write("I ran");
+            */
+            new SomeJobService().Save(new SomeJob() { Name = "Fred Shuttlesworth" });
+            log.WriteLine("Inserted new record into SomeJob Table...");
+            
         }
     }
 }
