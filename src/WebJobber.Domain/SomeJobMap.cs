@@ -13,6 +13,7 @@ namespace WebJobber.Domain
         {
             Id(j => j.Id).UnsavedValue(0);
             Map(j => j.Name).Nullable();
+            Map(j => j.StartDate).Nullable();
         }
     }
 }

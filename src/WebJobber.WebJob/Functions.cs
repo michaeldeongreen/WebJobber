@@ -25,7 +25,7 @@ namespace WebJobber.WebJob
             new FileService().Write();
             string path = string.Format(@"{0}\webjobber.txt", Environment.CurrentDirectory);
             */
-            new SomeJobService().Save(new SomeJob() { Name = "Fred Shuttlesworth" });
+            new SomeJobService().Save(new SomeJob() { Name = "Fred Shuttlesworth", StartDate = DateTime.Now });
             log.WriteLine("Inserted new record into SomeJob Table...");
             
         }
